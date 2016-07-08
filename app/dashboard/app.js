@@ -56,6 +56,10 @@ app.locals({
 
 // Routes
 
+app.get('/index', function(req, res) {
+  res.render('index');
+});
+
 app.get('/events', function(req, res) {
   res.render('events');
 });
