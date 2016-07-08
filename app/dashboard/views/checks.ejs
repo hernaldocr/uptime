@@ -5,6 +5,7 @@
 <% if (info.length) { %>
 <div class="alert alert-success"><%= info %></div>
 <% } %>
+<div> Next <a href="javascript:window.location.reload()">refresh</a> in <b id="countdown"></b>seconds</div>
 <div style="text-align:right">
   <a class="btn btn-primary" href="<%= route %>/checks/new">Create check</a>
 </div>
@@ -99,4 +100,30 @@ jQuery(document).ready(function($) {
   }, 5000);
 
 });
+
+  // refresh de form every 10 seconds
+  function refreshpage(interval, countdownel, totalel){
+  var countdownel = document.getElementById(countdownel)
+  var totalel = document.getElementById(totalel)
+  var timeleft = interval+1
+  var countdowntimer
+
+  function countdown(){
+    timeleft--
+    countdownel.innerHTML = timeleft
+    if (timeleft == 0){
+      clearTimeout(countdowntimer)
+      window.location.reload()
+    }
+    countdowntimer = setTimeout(function(){
+      countdown()
+    }, 1000)
+  }
+
+  countdown()
+}
+
+window.onload = function(){
+  refreshpage(15, "countdown") // refreshpage(duration_in_seconds, id_of_element_to_show_result)
+}
 </script>
