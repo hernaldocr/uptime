@@ -162,15 +162,15 @@ DateNavigation.prototype.redrawZoom = function() {
   var zoom = '';
   var subType = this.interval.subType(this.interval.type);
   if (subType !== false && !this.interval.isMaxZoom()) {
-    zoom += '<button class="btn btn-small" data-type="' + subType + '" data-date="' + this.interval.date + '"><li class="icon-zoom-in"></li></button>';
+    zoom += '<button class="btn btn-small" data-type="' + subType + '" data-date="' + this.interval.date + '"><li class="fa fa-search-plus"></li></button>';
   } else {
-    zoom += '<button class="btn btn-small" disabled="disabled"><i class="icon-zoom-in"></i></button>'
+    zoom += '<button class="btn btn-small" disabled="disabled"><i class="fa fa-search-plus"></i></button>'
   }
   var superType = this.interval.superType(this.interval.type);
   if (superType !== false) {
-    zoom += '<button class="btn btn-small" data-type="' + superType + '" data-date="' + this.interval.date + '"><li class="icon-zoom-out"></li></button>';
+    zoom += '<button class="btn btn-small" data-type="' + superType + '" data-date="' + this.interval.date + '"><li class="fa fa-search-minus"></li></button>';
   } else {
-    zoom += '<button class="btn btn-small" disabled="disabled"><i class="icon-zoom-out"></i></button>'
+    zoom += '<button class="btn btn-small" disabled="disabled"><i class="fa fa-search-minus"></i></button>'
   }
   $('#dateNavigation .zoom').html(zoom);
 }

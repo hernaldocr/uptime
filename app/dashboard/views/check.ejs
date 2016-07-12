@@ -22,27 +22,28 @@ ejs.close = '}}';
 <% if (info.length) { %>
 <div class="alert alert-success"><%= info %></div>
 <% } %>
+
 <div id="dateNavigationContainer">
   <div id="dateNavigation">
     <div class="row">
-      <div class="span2"></div>
-      <div class="span10">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-10">
         <div class="title"></div>
         <div class="timeline"></div>
       </div>
     </div>
     <div class="row">
-      <div class="span2">
+      <div class="col-lg-2">
         <ul class="btn-group zoom"></ul>
       </div>
-      <div class="span10">
-        <div class="periods"></div>
+        <div class="col-lg-10">
+          <div class="periods"></div>
       </div>
     </div>
   </div>
 </div>
 <div id="sectionList" class="row">
-  <div class="span2">
+  <div class="col-lg-2">
     <ul id="secondaryNav" class="nav nav-tabs nav-stacked">
       <li><a href="#availability" title="Percentage of uptime over the period">Availability<i class="icon-chevron-right"></i><br/><strong class="availability"></strong>%</a></li>
       <li><a href="#events">Downtime<i class="icon-chevron-right"></i><br/><strong class="downtime"></strong></a></li>
@@ -51,7 +52,7 @@ ejs.close = '}}';
       <li><a href="#data">Data<i class="icon-chevron-right"></i></a></li>
     </ul>
   </div>
-  <div class="span10">
+  <div class="col-lg-10">
     <section id="availability">
     <%- partial('_availability') %>
     </section>
@@ -90,7 +91,6 @@ jQuery(document).ready(function($) {
   
   // initialize secondary navigation
   new StatNavigation(dateInterval);
-
   // initialize date navigation
   new DateNavigation(dateInterval, 'check', <%- JSON.stringify(check) %>);
   
